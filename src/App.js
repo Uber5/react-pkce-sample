@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {AuthContext, Authenticated} from './auth'
+import Protected from './Protected'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: 20 }}>
+      <AuthContext>
+        <Router>
+          <Route path='/'>
+            <div>
+              <Link to='/'>Home</Link>
+              {' '}
+              <Link to='/protected'>Protected</Link>
+            </div>
+          </Route>
+          <Route path='/protected'>
+            <Authenticated>
+              <Protected />
+            </Authenticated>
+          </Route>
+        </Router>
+      </AuthContext>
     </div>
   );
 }
