@@ -3,11 +3,13 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import {AuthContext, Authenticated} from './auth'
 import Protected from './Protected'
 
+const basename = window.location.href.match(/uber5.github.io/) ? '/react-pkce-sample' : undefined
+
 function App() {
   return (
     <div style={{ padding: 20 }}>
       <AuthContext>
-        <Router>
+        <Router basename={basename}>
           <Route path='/'>
             <div>
               <Link to='/'>Home</Link>
