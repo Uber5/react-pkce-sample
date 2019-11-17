@@ -1,7 +1,7 @@
 {
-  "name": "pkce-test",
+  "name": "react-pkce-sample",
   "version": "0.1.0",
-  "homepage": "https://uber5.github.io/pkce-test",
+  "homepage": "https://uber5.github.io/react-pkce-sample",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.12.0",
